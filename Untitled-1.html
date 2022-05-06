@@ -2,11 +2,12 @@
 <html>
 
 <head>
-  <meta charset="uft-8">
-  <title>Protótipo</title>
+  <meta charset="uft-8"/>
+  <title>Prot&oacute;tipo</title>
 
   <style>
-
+      #ambienteP {
+      }
   </style>
 
 </head>
@@ -17,7 +18,7 @@
   <h2>Calculadora</h2>
 
   <!-- Selector of room -->
-  <p>
+  <p id = "ambienteP">
     <label for = "ambiente">Selecione um ambiente</label>
     <select id = "ambiente">
       <option value = ""></option>
@@ -29,7 +30,7 @@
   </p>
 
   <!-- Device Selector -->
-  <p>
+  <p id = "aparelhoP">
     <label for = "aparelho">Selecione um Aparelho</label>
     <select id = "aparelho">
       <option value = ""></option>
@@ -37,8 +38,22 @@
     </select>
   </p>
 
+  <p id = "quantidadeP">
+      <label for = "quantidade">Quantidade de aparelhos</label>
+      <input id = "quantidade" type = "number">
+  </p>
+
+  <p id = "horasP">
+      <label for = "horas">Horas usadas</label>
+      <input id = "horas" type = "number">
+  </p>
+
   <script>
+    const ambiente = document.getElementById("ambiente");
+    console.log(ambiente);
     
+    const aparelho = document.getElementById("aparelho");
+    console.log(aparelho);
   </script>
 
 </body>
