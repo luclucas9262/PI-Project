@@ -6,8 +6,7 @@
   <title>Prot&oacute;tipo</title>
 
   <style>
-      #ambienteP {
-      }
+      
   </style>
 
 </head>
@@ -38,6 +37,8 @@
     </select>
   </p>
 
+  <div id = "novoAparelho"></div>
+
   <p id = "quantidadeP">
       <label for = "quantidade">Quantidade de aparelhos</label>
       <input id = "quantidade" type = "number">
@@ -48,12 +49,9 @@
       <input id = "horas" type = "number">
   </p>
 
-  <script>
-    const ambiente = document.getElementById("ambiente");
-    console.log(ambiente);
-    
-    const aparelho = document.getElementById("aparelho");
-    console.log(aparelho);
+  <button type="button" id = "calcular">Calcular</button>
+
+  <script src = "script.js"></script>
   </script>
 
 </body>
