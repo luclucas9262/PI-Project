@@ -6,7 +6,13 @@
   <title>Prot&oacute;tipo</title>
 
   <style>
-      
+    #novoAparelho::marker {
+      list-style-type: none
+    }
+
+    #error{
+      color:red
+    }
   </style>
 
 </head>
@@ -18,9 +24,9 @@
 
   <!-- Selector of room -->
   <p id = "ambienteP">
-    <label for = "ambiente">Selecione um ambiente</label>
+    <label for ="ambiente">selecione um ambiente</label><br>
     <select id = "ambiente">
-      <option style = "display: none;">-- selecione um ambiente --</option>
+      <option style = "display: none;"></option>
       <option value = "sala">sala</option>
       <option value = "cozinha">cozinha</option>
       <option value = "quarto">quarto</option>
@@ -30,29 +36,39 @@
 
   <!-- Device Selector -->
   <p id = "aparelhoP">
-    <label for = "aparelho">Selecione um Aparelho</label>
+    <label for = "aparelho">Selecione um Aparelho</label><br>
     <select id = "aparelho">
       <option style = "display: none;"></option>
-      <option value = "new">novo dispositivo</option> <!-- Make a Function to add a new device -->
+      <option value = "new">novo dispositivo</option>
     </select>
   </p>
 
-  <div id = "novoAparelho" style = "display: none;">
-    <p id = "nNomeP" style="margin-left: 5%;">Nome do novo Aparelho <input id = "nNome"></p>
-    <p id = "nMWP" style="margin-left: 5%;"> <input id = "nMw"></p>
+  <!-- New Device -->
+  <div id = "novoAparelho" style = "display: none; margin-left: 5%;">
+    <label for = "nNome">Nome do novo Aparelho</label><br> <input id = "nNome"><br><br>
+    <label for = "nMw">Mw por hora que o aparelho utiliza</label><br> <input id = "nMw" type="number"> <br><br>
+
+    <button type ="button" id = "nSubmit">Adicionar novo aparelho</button>
+    
+    <p style = "color: green;" id="addAlert"></p>
   </div>
 
+  <!-- Device Quantity -->
   <p id = "quantidadeP">
-      <label for = "quantidade">Quantidade de aparelhos</label>
-      <input id = "quantidade" type = "number">
+      <label for = "quantidade">Quantidade de aparelhos</label><br>
+      <input id = "quantidade" type="number">
   </p>
 
+  <!-- Device hours -->
   <p id = "horasP">
-      <label for = "horas">Horas usadas</label>
+      <label for = "horas">Horas usadas</label><br>
       <input id = "horas" type = "number">
   </p>
 
-  <button type="button" id = "calcular">Calcular</button>
+  <!-- Submit Button -->
+  <button type="button" id = "calcular">adicionar aparelho(s)</button>
+
+  <div id = "error" style="margin-top: 2%;"></div>
 
   <script src = "script.js"></script>
 
