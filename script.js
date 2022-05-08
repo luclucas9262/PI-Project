@@ -68,7 +68,7 @@ class Dispositivo{
 
         element = document.createElement("p")
         element.className = "block";
-        element.innerHTML = this.value;
+        element.innerHTML = "R$"+this.value;
         valor.appendChild(element);
     }
 }
