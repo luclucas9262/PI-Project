@@ -20,7 +20,7 @@
   <p id = "ambienteP">
     <label for = "ambiente">Selecione um ambiente</label>
     <select id = "ambiente">
-      <option value = ""></option>
+      <option style = "display: none;">-- selecione um ambiente --</option>
       <option value = "sala">sala</option>
       <option value = "cozinha">cozinha</option>
       <option value = "quarto">quarto</option>
@@ -32,12 +32,15 @@
   <p id = "aparelhoP">
     <label for = "aparelho">Selecione um Aparelho</label>
     <select id = "aparelho">
-      <option value = ""></option>
+      <option style = "display: none;"></option>
       <option value = "new">novo dispositivo</option> <!-- Make a Function to add a new device -->
     </select>
   </p>
 
-  <div id = "novoAparelho"></div>
+  <div id = "novoAparelho" style = "display: none;">
+    <p id = "nNomeP" style="margin-left: 5%;">Nome do novo Aparelho <input id = "nNome"></p>
+    <p id = "nMWP" style="margin-left: 5%;"> <input id = "nMw"></p>
+  </div>
 
   <p id = "quantidadeP">
       <label for = "quantidade">Quantidade de aparelhos</label>
@@ -52,7 +55,6 @@
   <button type="button" id = "calcular">Calcular</button>
 
   <script src = "script.js"></script>
-  </script>
 
 </body>
 
