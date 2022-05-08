@@ -9,7 +9,14 @@ const error = document.getElementById("error");
 const nNome = document.getElementById("nNome");
 const nMW = document.getElementById("nMw");
 const alert = document.getElementById("addAlert");
-const dispositivos = document.getElementsByClassName("dispositivos");
+
+const dispositivos = document.getElementsByClassName("dispositivos")[0];
+const quantidades = document.getElementsByClassName("quantidades")[0];
+const aparelhos = document.getElementsByClassName("aparelhos")[0];
+const horas = document.getElementsByClassName("horas")[0];
+const kwHs = document.getElementsByClassName("KwHs")[0];
+const valor = document.getElementsByClassName("valor")[0];
+
 
 aparelho.addEventListener("change",function(){
     if(aparelho.value === "new"){
@@ -23,7 +30,50 @@ aparelho.addEventListener("change",function(){
     };
 })
 
+class Dispositivo{
+    constructor(room,quantity,device,hours){
+        this.quantity = quantity.value;
+        this.device = device.options[device.selectedIndex].text;
+        this.hours = hours.value;
+        this.kw = device.value;
+        this.room = room.value;
+        this.value = parseInt(this.kw) * 0.9;
+    }
 
+    addList(){
+        let element = document.createElement("p")
+        element.className = "block";
+        element.innerHTML = this.quantity;
+        quantidades.appendChild(element);
+
+        element = document.createElement("p")
+        element.className = "block";
+        element.innerHTML = this.device;
+        aparelhos.appendChild(element);
+
+        element = document.createElement("p")
+        element.className = "block";
+        element.innerHTML = this.hours;
+        horas.appendChild(element);
+
+        element = document.createElement("p")
+        element.className = "block";
+        element.innerHTML = this.kw;
+        kwHs.appendChild(element);
+
+        element = document.createElement("p")
+        element.className = "block";
+        element.innerHTML = this.room;
+        ambiente.appendChild(element);
+
+        element = document.createElement("p")
+        element.className = "block";
+        element.innerHTML = this.value;
+        valor.appendChild(element);
+    }
+}
+
+let devices = [];
 
 function submit(){
     //Error detector
@@ -64,6 +114,12 @@ function submit(){
         return;
     }
     
+    devices.push(new Dispositivo(ambiente,quantidade,aparelho,hora));
+    devices[0].addList();
+
+    console.log(devices);
+    console.log(aparelho);
+
     error.style.color = "green";
     error.innerHTML = "Dispositivo adicionado!";
 } 
@@ -90,7 +146,7 @@ function nSubmit(){
     }
 
     let nDevice = document.createElement("option");
-    nDevice.id = nMW.value;
+    nDevice.value = nMW.value;
     nDevice.text = nNome.value;
     nMW.value = "";
     nNome.value = "";
