@@ -2,13 +2,14 @@ const ambiente = document.getElementById("ambiente");
 const aparelho = document.getElementById("aparelho");
 const nAparelho = document.getElementById("novoAparelho");
 const quantidade = document.getElementById("quantidade");
-const horas = document.getElementById("horas");
+const hora = document.getElementById("hora");
 const calcular = document.getElementById("calcular");
 const nButton = document.getElementById("nSubmit")
 const error = document.getElementById("error");
 const nNome = document.getElementById("nNome");
 const nMW = document.getElementById("nMw");
 const alert = document.getElementById("addAlert");
+const dispositivos = document.getElementsByClassName("dispositivos");
 
 aparelho.addEventListener("change",function(){
     if(aparelho.value === "new"){
@@ -52,7 +53,7 @@ function submit(){
         error.appendChild(br);
         errorDetector = true;
     }
-    if(horas.value === ""){
+    if(hora.value === ""){
         error.innerHTML += "Coloque quantas horas o aparelho est&aacute sendo utilizado"
         let br = document.createElement("br");
         error.appendChild(br);

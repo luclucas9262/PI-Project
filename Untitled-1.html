@@ -6,72 +6,158 @@
   <title>Prot&oacute;tipo</title>
 
   <style>
-    #novoAparelho::marker {
-      list-style-type: none
+    .container{
+      position: relative;
     }
 
-    #error{
-      color:red
+    .calculadora{
+      position: absolute;
+      border-style: solid;
+      right:50%;
+      left:0px;
     }
+    
+    .dispositivos{
+      position: absolute;
+
+      right:0px;
+      left:50%;
+
+
+      border-style: solid;
+    }
+
+    .quantidades{
+      position: inherit;
+      top: 0px;
+      right: 95%;
+      left: -6px;
+      text-align: center;
+      
+    }
+
+    .aparelhos{
+      position: inherit;
+      top: 0px;
+      left: 5%;
+      right: 50%;
+      text-align: center;
+    }
+
+    .horas{
+      position: inherit;
+      top: 0px;
+      left: 50%;
+      right: 35%;
+      text-align: center;
+    }
+
+    .KwHs{
+      position: inherit;
+      top: 0px;
+      left: 65%;
+      right: 20%;
+      text-align: center;
+    }
+
+    .valor{
+      position: inherit;
+      top: 0px;
+      left: 80%;
+      right: -6px;
+      text-align: center;
+    }
+
+    .block{
+      border-style: solid;
+    }
+
   </style>
 
 </head>
 
 <body>
+  <div class="container">
+    <div class = "calculadora">
+      <!-- The title -->
+      <h2>Calculadora</h2>
 
-  <!-- The title -->
-  <h2>Calculadora</h2>
+      <!-- Selector of room -->
+      <p id = "ambienteP">
+        <label for ="ambiente">selecione um ambiente</label><br>
+        <select id = "ambiente">
+          <option style = "display: none;"></option>
+          <option value = "sala">sala</option>
+          <option value = "cozinha">cozinha</option>
+          <option value = "quarto">quarto</option>
+          <option value = "banheiro">banheiro</option>
+        </select>
+      </p>
 
-  <!-- Selector of room -->
-  <p id = "ambienteP">
-    <label for ="ambiente">selecione um ambiente</label><br>
-    <select id = "ambiente">
-      <option style = "display: none;"></option>
-      <option value = "sala">sala</option>
-      <option value = "cozinha">cozinha</option>
-      <option value = "quarto">quarto</option>
-      <option value = "banheiro">banheiro</option>
-    </select>
-  </p>
+      <!-- Device Selector -->
+      <p id = "aparelhoP">
+        <label for = "aparelho">Selecione um Aparelho</label><br>
+        <select id = "aparelho">
+          <option style = "display: none;"></option>
+          <option value = "new">novo dispositivo</option>
+        </select>
+      </p>
 
-  <!-- Device Selector -->
-  <p id = "aparelhoP">
-    <label for = "aparelho">Selecione um Aparelho</label><br>
-    <select id = "aparelho">
-      <option style = "display: none;"></option>
-      <option value = "new">novo dispositivo</option>
-    </select>
-  </p>
+      <!-- New Device -->
+      <div id = "novoAparelho" style = "display: none; margin-left: 5%;">
+        <label for = "nNome">Nome do novo Aparelho</label><br> <input id = "nNome"><br><br>
+        <label for = "nMw">Mw por hora que o aparelho utiliza</label><br> <input id = "nMw" type="number"> <br><br>
 
-  <!-- New Device -->
-  <div id = "novoAparelho" style = "display: none; margin-left: 5%;">
-    <label for = "nNome">Nome do novo Aparelho</label><br> <input id = "nNome"><br><br>
-    <label for = "nMw">Mw por hora que o aparelho utiliza</label><br> <input id = "nMw" type="number"> <br><br>
+        <button type ="button" id = "nSubmit">Adicionar novo aparelho</button>
+        
+        <p style = "color: green;" id="addAlert"></p>
+      </div>
 
-    <button type ="button" id = "nSubmit">Adicionar novo aparelho</button>
-    
-    <p style = "color: green;" id="addAlert"></p>
+      <!-- Device Quantity -->
+      <p id = "quantidadeP">
+          <label for = "quantidade">Quantidade de aparelhos</label><br>
+          <input id = "quantidade" type="number">
+      </p>
+
+      <!-- Device hours -->
+      <p id = "horasP">
+          <label for = "hora">Horas usadas</label><br>
+          <input id = "hora" type = "number">
+      </p>
+
+      <!-- Submit Button -->
+      <button type="button" id = "calcular">adicionar aparelho(s)</button>
+
+      <div id = "error" style="margin-top: 2%;"></div>
+
+      
+    </div>
+
+    <div class = "dispositivos">
+      <div class = "quantidades">
+        <p class = "block">1</p>
+        <p class = "block">2</p>
+      </div>
+      <div class = "aparelhos">
+        <p class="block">batata</p>
+        <p class = "block">2</p>
+      </div>
+      <div class = horas>
+        <p class = "block">10h</p>
+        <p class = "block">2</p>
+      </div>
+      <div class = "KwHs">
+        <p class = "block">10kw/h</p>
+        <p class = "block">2</p>
+      </div>
+      <div class = "valor">
+        <p class = "block">10R$</p>
+        <p class = "block">2</p>
+      </div>
+
+    </div>
   </div>
-
-  <!-- Device Quantity -->
-  <p id = "quantidadeP">
-      <label for = "quantidade">Quantidade de aparelhos</label><br>
-      <input id = "quantidade" type="number">
-  </p>
-
-  <!-- Device hours -->
-  <p id = "horasP">
-      <label for = "horas">Horas usadas</label><br>
-      <input id = "horas" type = "number">
-  </p>
-
-  <!-- Submit Button -->
-  <button type="button" id = "calcular">adicionar aparelho(s)</button>
-
-  <div id = "error" style="margin-top: 2%;"></div>
-
   <script src = "script.js"></script>
-
 </body>
 
 </html>
