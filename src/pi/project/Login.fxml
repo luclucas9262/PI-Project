@@ -18,12 +18,12 @@
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="400.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" width="600.0" />
       <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#a4a4a4" height="274.0" layoutX="83.0" layoutY="63.0" opacity="0.94" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="434.0" />
-      <Text fill="WHITE" layoutX="250.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+      <Text fx:id="yoriichi" fill="WHITE" layoutX="250.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
          <font>
             <Font name="Arial" size="34.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="108.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" />
+      <Text fx:id="sus" fill="WHITE" layoutX="108.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" />
       <TextField fx:id="tfUser" layoutX="108.0" layoutY="152.0" prefHeight="25.0" prefWidth="385.0" />
       <TextField fx:id="tfPassword" layoutX="108.0" layoutY="218.0" prefHeight="25.0" prefWidth="385.0" />
       <Text fill="WHITE" layoutX="108.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha" />
