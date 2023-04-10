@@ -20,8 +20,8 @@ import javafx.scene.text.Text;
  */
 public class LoginController implements Initializable {
 
-    String usuario = "yoriichi";
-    String senha = "eu sinto pena";
+    String usuario = "Admin";
+    String senha = "Admin";
     
     
     
@@ -31,7 +31,9 @@ public class LoginController implements Initializable {
     private TextField tfPassword;
     
     @FXML
-    private Text yoriichi;
+    private Text GoodStats;
+    @FXML
+    private Text BadStats;
     
     
 
@@ -40,26 +42,24 @@ public class LoginController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("Alahoi");
         // TODO
     }    
 
     @FXML
     private void clickRegister(MouseEvent event) {
-        System.out.println("Alahoi");
-
+        // TODO
     }
 
     @FXML
     private void onClickEnter(ActionEvent event) {
-        System.out.println("Alahoi");
-        yoriichi.setText(tfUser.getText());
-                if (usuario.equals(tfUser.getText()) && senha.equals(tfPassword.getText())){
-                    yoriichi.setText("Login realizado com sucesso");
-                }
-                else {
-                    yoriichi.setText("Login não realizado");
-                }
+            if (usuario.equals(tfUser.getText()) && senha.equals(tfPassword.getText())){
+                GoodStats.setOpacity(1);
+                BadStats.setOpacity(0);
+            }
+            else {
+                GoodStats.setOpacity(0);
+                BadStats.setOpacity(1);
+            }
     }
     
 }
