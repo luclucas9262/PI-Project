@@ -22,7 +22,7 @@ public class PiProject extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Agenda.fxml"));
             
             Scene scene = new Scene(root);
             

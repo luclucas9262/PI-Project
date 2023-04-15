@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pi.project.AgendaController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d9d9d9" height="400.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Group>
+         <children>
+            <Group>
+               <children>
+                  <Rectangle fx:id="ExamBody1" arcHeight="20.0" arcWidth="20.0" fill="#9c9c9c" height="80.0" layoutX="236.0" layoutY="14.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="350.0" />
+                  <Text fx:id="ExamDate1" layoutX="250.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="322.13671875" />
+                  <Text fx:id="ExamName1" layoutX="250.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="320.13671875" />
+               </children>
+            </Group>
+            <Group>
+               <children>
+                  <Rectangle fx:id="ExamBody2" arcHeight="20.0" arcWidth="20.0" fill="#9c9c9c" height="80.0" layoutX="236.0" layoutY="111.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="350.0" />
+                  <Text fx:id="ExamDate2" layoutX="250.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="322.13671875" />
+                  <Text fx:id="ExamName2" layoutX="250.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="320.13671875" />
+               </children>
+            </Group>
+            <Group>
+               <children>
+                  <Text fx:id="ExamDate3" layoutX="250.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="322.13671875" />
+                  <Rectangle fx:id="ExamBody3" arcHeight="20.0" arcWidth="20.0" fill="#9c9c9c" height="80.0" layoutX="236.0" layoutY="210.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="350.0" />
+                  <Text fx:id="ExamName3" layoutX="250.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="320.13671875" />
+               </children>
+            </Group>
+            <Group>
+               <children>
+                  <Text fx:id="ExamName4" layoutX="250.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="320.13671875" />
+                  <Rectangle fx:id="ExamBody4" arcHeight="20.0" arcWidth="20.0" fill="#9c9c9c" height="80.0" layoutX="236.0" layoutY="307.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="350.0" />
+                  <Text fx:id="ExamDate4" layoutX="250.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="322.13671875" />
+               </children>
+            </Group>
+         </children>
+      </Group>
+      <Group>
+         <children>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#9c9c9c" height="373.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="208.0" />
+            <Text layoutX="80.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agendamento" />
+            <Button alignment="CENTER" layoutX="63.0" layoutY="348.0" mnemonicParsing="false" onAction="#Add_Consulta" text="Agendar consulta" />
+            <Group layoutX="-3.0" layoutY="92.0">
+               <children>
+                  <TextField fx:id="ExamName" layoutX="31.0" layoutY="63.0" prefHeight="25.0" prefWidth="174.0" />
+                  <Text layoutX="32.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome da consulta" />
+               </children>
+            </Group>
+            <Group layoutX="-3.0" layoutY="69.0">
+               <children>
+                  <Text layoutX="31.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data" />
+                  <DatePicker fx:id="ExamDate" layoutX="31.0" layoutY="147.0" />
+               </children>
+            </Group>
+            <Text fx:id="BadStats" fill="RED" layoutX="39.0" layoutY="76.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precisa de um nome ou data" textAlignment="CENTER" />
+         </children>
+      </Group>
+   </children>
+</AnchorPane>
