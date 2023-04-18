@@ -1,103 +1,434 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package pi.project;
 
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Hashtable;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
  *
- * @author Pc
+ * @author 00342605
  */
 public class AgendaController implements Initializable {
 
-    @FXML
-    private Text ExamName4;
-    @FXML
-    private Rectangle ExamBody4;
-    @FXML
-    private Text ExamDate4;
-    @FXML
-    private Rectangle ExamBody2;
-    @FXML
-    private Text ExamDate2;
-    @FXML
-    private Text ExamName2;
-    @FXML
-    private Text ExamDate3;
-    @FXML
-    private Rectangle ExamBody3;
-    @FXML
-    private Text ExamName3;
-    @FXML
-    private Rectangle ExamBody1;
-    @FXML
-    private Text ExamDate1;
-    @FXML
-    private Text ExamName1;
-    @FXML
-    private Text BadStats;
-    
+    int month = Calendar.getInstance().get(Calendar.MONTH);
+    int year = Calendar.getInstance().get(Calendar.YEAR);
     
     @FXML
     private TextField ExamName;
     @FXML
     private DatePicker ExamDate;
+    @FXML
+    private Text BadStats;
+    @FXML
+    private Text Month;
+    @FXML
+    private Text Number10;
+    @FXML
+    private Text Number20;
+    @FXML
+    private Text Number30;
+    @FXML
+    private Text Number40;
+    @FXML
+    private Text Number50;
+    @FXML
+    private Text Number60;
+    @FXML
+    private Text Number70;
+    @FXML
+    private Text Desc10;
+    @FXML
+    private Text Desc20;
+    @FXML
+    private Text Desc30;
+    @FXML
+    private Text Desc40;
+    @FXML
+    private Text Desc50;
+    @FXML
+    private Text Desc60;
+    @FXML
+    private Text Desc70;
+    @FXML
+    private Text Desc71;
+    @FXML
+    private Text Desc61;
+    @FXML
+    private Text Desc51;
+    @FXML
+    private Text Desc41;
+    @FXML
+    private Text Desc31;
+    @FXML
+    private Text Desc21;
+    @FXML
+    private Text Desc11;
+    @FXML
+    private Text Number71;
+    @FXML
+    private Text Number61;
+    @FXML
+    private Text Number51;
+    @FXML
+    private Text Number41;
+    @FXML
+    private Text Number31;
+    @FXML
+    private Text Number21;
+    @FXML
+    private Text Number11;
+    @FXML
+    private Text Desc72;
+    @FXML
+    private Text Desc62;
+    @FXML
+    private Text Desc52;
+    @FXML
+    private Text Desc42;
+    @FXML
+    private Text Desc32;
+    @FXML
+    private Text Desc22;
+    @FXML
+    private Text Desc12;
+    @FXML
+    private Text Number72;
+    @FXML
+    private Text Number62;
+    @FXML
+    private Text Number52;
+    @FXML
+    private Text Number42;
+    @FXML
+    private Text Number32;
+    @FXML
+    private Text Number22;
+    @FXML
+    private Text Number12;
+    @FXML
+    private Text Desc73;
+    @FXML
+    private Text Desc63;
+    @FXML
+    private Text Desc53;
+    @FXML
+    private Text Desc43;
+    @FXML
+    private Text Desc33;
+    @FXML
+    private Text Desc23;
+    @FXML
+    private Text Desc13;
+    @FXML
+    private Text Number73;
+    @FXML
+    private Text Number63;
+    @FXML
+    private Text Number53;
+    @FXML
+    private Text Number43;
+    @FXML
+    private Text Number33;
+    @FXML
+    private Text Number23;
+    @FXML
+    private Text Number13;
+    @FXML
+    private Text Desc74;
+    @FXML
+    private Text Desc64;
+    @FXML
+    private Text Desc54;
+    @FXML
+    private Text Desc44;
+    @FXML
+    private Text Desc34;
+    @FXML
+    private Text Desc24;
+    @FXML
+    private Text Desc14;
+    @FXML
+    private Text Number74;
+    @FXML
+    private Text Number64;
+    @FXML
+    private Text Number54;
+    @FXML
+    private Text Number44;
+    @FXML
+    private Text Number34;
+    @FXML
+    private Text Number24;
+    @FXML
+    private Text Number14;
+    @FXML
+    private Text Desc75;
+    @FXML
+    private Text Desc65;
+    @FXML
+    private Text Desc55;
+    @FXML
+    private Text Desc45;
+    @FXML
+    private Text Desc35;
+    @FXML
+    private Text Desc25;
+    @FXML
+    private Text Desc15;
+    @FXML
+    private Text Number75;
+    @FXML
+    private Text Number65;
+    @FXML
+    private Text Number55;
+    @FXML
+    private Text Number45;
+    @FXML
+    private Text Number35;
+    @FXML
+    private Text Number25;
+    @FXML
+    private Text Number15;
     
-    private int slot = 1;
-    private String slotname = "Exam";
-    
-    
+    Hashtable<String, String> agenda = new Hashtable<String, String>(); 
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        Text[] dayDesc = {Desc10, Desc20, Desc30, Desc40, Desc50, Desc60, Desc70, Desc11, Desc21, Desc31, Desc41, Desc51, Desc61, Desc71, Desc12, Desc22, Desc32, Desc42, Desc52, Desc62, Desc72, Desc13, Desc23, Desc33, Desc43, Desc53, Desc63, Desc73, Desc14, Desc24, Desc34, Desc44, Desc54, Desc64, Desc74, Desc15, Desc25, Desc35, Desc45, Desc55, Desc65, Desc75};
+
+        Text[] dayNumber = {Number10, Number20, Number30, Number40, Number50, Number60, Number70, Number11, Number21, Number31, Number41, Number51, Number61, Number71, Number12, Number22, Number32, Number42, Number52, Number62, Number72, Number13, Number23, Number33, Number43, Number53, Number63, Number73, Number14, Number24, Number34, Number44, Number54, Number64, Number74, Number15, Number25, Number35, Number45, Number55, Number65, Number75};
+
+        int month = Calendar.getInstance().get(Calendar.MONTH);
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        
+        ResetMonth(dayNumber, dayDesc);
+        SetMonth(month);
+        try {
+            UpdateDays(dayDesc, dayNumber, month, year);
+        } catch (ParseException ex) {
+            Logger.getLogger(AgendaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
 
     @FXML
-    private void Add_Consulta(ActionEvent event) {
+    private void Add_Consulta(ActionEvent event) throws ParseException {
+        Text[] dayDesc = {Desc10, Desc20, Desc30, Desc40, Desc50, Desc60, Desc70, Desc11, Desc21, Desc31, Desc41, Desc51, Desc61, Desc71, Desc12, Desc22, Desc32, Desc42, Desc52, Desc62, Desc72, Desc13, Desc23, Desc33, Desc43, Desc53, Desc63, Desc73, Desc14, Desc24, Desc34, Desc44, Desc54, Desc64, Desc74, Desc15, Desc25, Desc35, Desc45, Desc55, Desc65, Desc75};
+        Text[] dayNumber = {Number10, Number20, Number30, Number40, Number50, Number60, Number70, Number11, Number21, Number31, Number41, Number51, Number61, Number71, Number12, Number22, Number32, Number42, Number52, Number62, Number72, Number13, Number23, Number33, Number43, Number53, Number63, Number73, Number14, Number24, Number34, Number44, Number54, Number64, Number74, Number15, Number25, Number35, Number45, Number55, Number65, Number75};
         
-        if(!(ExamName.getText().length() == 0) || !(ExamDate.getValue().toString().length() == 0)){
+        if(!(ExamDate.getValue().toString().length() == 0 || ExamName.getText().length() == 0)){
             BadStats.setOpacity(0);
-            switch(slot){
-                case 1:
-                    ExamBody1.setOpacity(1);
-                    ExamName1.setText(ExamName.getText());
-                    ExamDate1.setText(ExamDate.getValue().toString());
-                    break;
-                case 2:
-                    ExamBody2.setOpacity(1);
-                    ExamName2.setText(ExamName.getText());
-                    ExamDate2.setText(ExamDate.getValue().toString());
-                    break;
-                case 3:
-                    ExamBody3.setOpacity(1);
-                    ExamName3.setText(ExamName.getText());
-                    ExamDate3.setText(ExamDate.getValue().toString());
-                    break;
-                case 4:
-                    ExamBody4.setOpacity(1);
-                    ExamName4.setText(ExamName.getText());
-                    ExamDate4.setText(ExamDate.getValue().toString());
-                    break;    
-            }
-            slot++;
+            agenda.put(ExamDate.getValue().toString(), ExamName.getText());
+            
+            Month.setText(ExamDate.getValue().toString());
+            UpdateDays(dayDesc, dayNumber, month, year);
         }
         else{
             BadStats.setOpacity(1);
+            ExamDate.setValue(null);
+            ExamName.setText(null);
+        }
+    }
+
+    @FXML
+    private void MinusMonth(MouseEvent event) {
+
+        Text[] dayDesc = {Desc10, Desc20, Desc30, Desc40, Desc50, Desc60, Desc70, Desc11, Desc21, Desc31, Desc41, Desc51, Desc61, Desc71, Desc12, Desc22, Desc32, Desc42, Desc52, Desc62, Desc72, Desc13, Desc23, Desc33, Desc43, Desc53, Desc63, Desc73, Desc14, Desc24, Desc34, Desc44, Desc54, Desc64, Desc74, Desc15, Desc25, Desc35, Desc45, Desc55, Desc65, Desc75};
+
+        Text[] dayNumber = {Number10, Number20, Number30, Number40, Number50, Number60, Number70, Number11, Number21, Number31, Number41, Number51, Number61, Number71, Number12, Number22, Number32, Number42, Number52, Number62, Number72, Number13, Number23, Number33, Number43, Number53, Number63, Number73, Number14, Number24, Number34, Number44, Number54, Number64, Number74, Number15, Number25, Number35, Number45, Number55, Number65, Number75};
+    
+        
+        if(month-1 <0){
+            month = 11;
+            year--;
+        }
+        else{
+            month--;
+        }
+        ResetMonth(dayNumber, dayDesc);
+        SetMonth(month);
+        try {
+            UpdateDays(dayDesc, dayNumber, month, year);
+        } catch (ParseException ex) {
+            Logger.getLogger(AgendaController.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }
+
+    @FXML
+    private void AddMonth(MouseEvent event) {
+    
+        Text[] dayDesc = {Desc10, Desc20, Desc30, Desc40, Desc50, Desc60, Desc70, Desc11, Desc21, Desc31, Desc41, Desc51, Desc61, Desc71, Desc12, Desc22, Desc32, Desc42, Desc52, Desc62, Desc72, Desc13, Desc23, Desc33, Desc43, Desc53, Desc63, Desc73, Desc14, Desc24, Desc34, Desc44, Desc54, Desc64, Desc74, Desc15, Desc25, Desc35, Desc45, Desc55, Desc65, Desc75};
+
+        Text[] dayNumber = {Number10, Number20, Number30, Number40, Number50, Number60, Number70, Number11, Number21, Number31, Number41, Number51, Number61, Number71, Number12, Number22, Number32, Number42, Number52, Number62, Number72, Number13, Number23, Number33, Number43, Number53, Number63, Number73, Number14, Number24, Number34, Number44, Number54, Number64, Number74, Number15, Number25, Number35, Number45, Number55, Number65, Number75};
+    
+        if(month+1 >11){
+            month = 0;
+            year++;
+        }
+        else{
+            month++;
+        }
+        ResetMonth(dayNumber, dayDesc);
+        SetMonth(month);
+        try {
+            UpdateDays(dayDesc, dayNumber, month, year);
+        } catch (ParseException ex) {
+            Logger.getLogger(AgendaController.class.getName()).log(Level.SEVERE, null, ex);
+        }       
+    }
+    
+    @FXML
+    private void ResetMonth(Text[] dayNumber, Text[] dayDesc){
+        for(int i = 0; i<dayNumber.length;i++){
+            dayNumber[i].setText("");
+            dayDesc[i].setText("");
+        }
+    }
+    
+    @FXML
+    private void SetMonth(int month){
+        switch(month){
+            case 0:
+                Month.setText("Janeiro");
+                break;
+            case 1:
+                Month.setText("Fevereiro");
+                break;
+            case 2:
+                Month.setText("Março");
+                break;
+            case 3:
+                Month.setText("Abril");
+                break;
+            case 4:
+                Month.setText("Maio");
+                break;
+            case 5:
+                Month.setText("Junho");
+                break;
+            case 6:
+                Month.setText("Julho");
+                break;
+            case 7:
+                Month.setText("Agosto");
+                break;
+            case 8:
+                Month.setText("Setembro");
+                break;
+            case 9:
+                Month.setText("Outubro");
+                break;
+            case 10:
+                Month.setText("Novembro");
+                break;
+            case 11:
+                Month.setText("Dezembro");
+                break;
+            default:
+                Month.setText("ERROR");
+                break;
+        }
+    }
+    
+    @FXML
+    private void UpdateDays(Text[] dayDesc,Text[] dayNumber, int month, int year) throws ParseException{
+        Calendar c = Calendar.getInstance();
+        c.setTime(new SimpleDateFormat("dd/M/yyyy").parse("01/" + (month+1) + "/"+ year));
+        int modifier = c.get(Calendar.DAY_OF_WEEK);
+        
+        //Month.setText(String.valueOf(modifier));
+        String monthStr = null, dayStr = null;
+        
+        switch(month){
+            case 0:
+                monthStr = "01";
+                break;
+            case 1:
+                monthStr = "02";
+                break;
+            case 2:
+                monthStr = "03";
+                break;
+            case 3:
+                monthStr = "04";
+                break;
+            case 4:
+                monthStr = "05";
+                break;
+            case 5:
+                monthStr = "06";
+                break;
+            case 6:
+                monthStr = "07";
+                break;
+            case 7:
+                monthStr = "08";
+                break;
+            case 8:
+                monthStr = "09";
+                break;
+            case 9:
+                monthStr = "10";
+                break;
+            case 10:
+                monthStr = "11";
+                break;
+            case 11:
+                monthStr = "12";
+                break;  
         }
         
+        
+        
+        if(month == 1){
+            for(int i = 1; i<28; i++){
+                dayNumber[i+modifier-2].setText(String.valueOf(i));
+                
+                if(i <10){
+                    dayStr = "0"+i;
+                }
+                else{
+                    dayStr = String.valueOf(i);
+                }
+                if(agenda.containsKey(year+"-"+monthStr+"-"+dayStr)){
+                    dayDesc[i+modifier-2].setText(agenda.get(year+"-"+monthStr+"-"+dayStr));
+                }
+            }
+        }
+        else{
+            switch(month%2){
+                case 1:
+                    for(int i = 1; i<=30; i++){
+                        dayNumber[i+modifier-2].setText(String.valueOf(i));
+                    }
+                    break;
+                case 0:
+                    for(int i = 1; i<=31; i++){
+                        dayNumber[i+modifier-2].setText(String.valueOf(i));
+                    }
+                    break;
+            }
+        }
     }
 }
