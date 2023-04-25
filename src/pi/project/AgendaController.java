@@ -209,6 +209,7 @@ public class AgendaController implements Initializable {
     private Text Number15;
     
     Hashtable<String, String> agenda = new Hashtable<String, String>(); 
+    Text[] dayDesc, dayNumber;
 
     /**
      * Initializes the controller class.
@@ -216,17 +217,16 @@ public class AgendaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        Text[] dayDesc = {Desc10, Desc20, Desc30, Desc40, Desc50, Desc60, Desc70, Desc11, Desc21, Desc31, Desc41, Desc51, Desc61, Desc71, Desc12, Desc22, Desc32, Desc42, Desc52, Desc62, Desc72, Desc13, Desc23, Desc33, Desc43, Desc53, Desc63, Desc73, Desc14, Desc24, Desc34, Desc44, Desc54, Desc64, Desc74, Desc15, Desc25, Desc35, Desc45, Desc55, Desc65, Desc75};
-
-        Text[] dayNumber = {Number10, Number20, Number30, Number40, Number50, Number60, Number70, Number11, Number21, Number31, Number41, Number51, Number61, Number71, Number12, Number22, Number32, Number42, Number52, Number62, Number72, Number13, Number23, Number33, Number43, Number53, Number63, Number73, Number14, Number24, Number34, Number44, Number54, Number64, Number74, Number15, Number25, Number35, Number45, Number55, Number65, Number75};
+        dayDesc = new Text[]{Desc10, Desc20, Desc30, Desc40, Desc50, Desc60, Desc70, Desc11, Desc21, Desc31, Desc41, Desc51, Desc61, Desc71, Desc12, Desc22, Desc32, Desc42, Desc52, Desc62, Desc72, Desc13, Desc23, Desc33, Desc43, Desc53, Desc63, Desc73, Desc14, Desc24, Desc34, Desc44, Desc54, Desc64, Desc74, Desc15, Desc25, Desc35, Desc45, Desc55, Desc65, Desc75};
+        dayNumber = new Text[]{Number10, Number20, Number30, Number40, Number50, Number60, Number70, Number11, Number21, Number31, Number41, Number51, Number61, Number71, Number12, Number22, Number32, Number42, Number52, Number62, Number72, Number13, Number23, Number33, Number43, Number53, Number63, Number73, Number14, Number24, Number34, Number44, Number54, Number64, Number74, Number15, Number25, Number35, Number45, Number55, Number65, Number75};
 
         int month = Calendar.getInstance().get(Calendar.MONTH);
         int year = Calendar.getInstance().get(Calendar.YEAR);
         
-        ResetMonth(dayNumber, dayDesc);
+        ResetMonth();
         SetMonth(month);
         try {
-            UpdateDays(dayDesc, dayNumber, month, year);
+            UpdateDays(month, year);
         } catch (ParseException ex) {
             Logger.getLogger(AgendaController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -234,21 +234,24 @@ public class AgendaController implements Initializable {
 
     @FXML
     private void Add_Consulta(ActionEvent event) throws ParseException {
-        Text[] dayDesc = {Desc10, Desc20, Desc30, Desc40, Desc50, Desc60, Desc70, Desc11, Desc21, Desc31, Desc41, Desc51, Desc61, Desc71, Desc12, Desc22, Desc32, Desc42, Desc52, Desc62, Desc72, Desc13, Desc23, Desc33, Desc43, Desc53, Desc63, Desc73, Desc14, Desc24, Desc34, Desc44, Desc54, Desc64, Desc74, Desc15, Desc25, Desc35, Desc45, Desc55, Desc65, Desc75};
-        Text[] dayNumber = {Number10, Number20, Number30, Number40, Number50, Number60, Number70, Number11, Number21, Number31, Number41, Number51, Number61, Number71, Number12, Number22, Number32, Number42, Number52, Number62, Number72, Number13, Number23, Number33, Number43, Number53, Number63, Number73, Number14, Number24, Number34, Number44, Number54, Number64, Number74, Number15, Number25, Number35, Number45, Number55, Number65, Number75};
+        Calendar c = Calendar.getInstance();
+        c.setTime(new SimpleDateFormat("dd-M-yyyy").parse("01-" + (month+1) + "-"+ year));
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        c.add(Calendar.DATE, 10);
         
         if(!(ExamDate.getValue().toString().length() == 0 || ExamName.getText().length() == 0)){
             BadStats.setOpacity(0);
             agenda.put(ExamDate.getValue().toString(), ExamName.getText());
             
-            Month.setText(ExamDate.getValue().toString());
-            UpdateDays(dayDesc, dayNumber, month, year);
+            Month.setText("" + agenda.containsKey(sdf.format(c.getTime())));
         }
         else{
             BadStats.setOpacity(1);
             ExamDate.setValue(null);
             ExamName.setText(null);
         }
+        
+        UpdateDays(month, year);
     }
 
     @FXML
@@ -266,10 +269,10 @@ public class AgendaController implements Initializable {
         else{
             month--;
         }
-        ResetMonth(dayNumber, dayDesc);
+        ResetMonth();
         SetMonth(month);
         try {
-            UpdateDays(dayDesc, dayNumber, month, year);
+            UpdateDays(month, year);
         } catch (ParseException ex) {
             Logger.getLogger(AgendaController.class.getName()).log(Level.SEVERE, null, ex);
         }  
@@ -289,17 +292,17 @@ public class AgendaController implements Initializable {
         else{
             month++;
         }
-        ResetMonth(dayNumber, dayDesc);
+        ResetMonth();
         SetMonth(month);
         try {
-            UpdateDays(dayDesc, dayNumber, month, year);
+            UpdateDays(month, year);
         } catch (ParseException ex) {
             Logger.getLogger(AgendaController.class.getName()).log(Level.SEVERE, null, ex);
         }       
     }
     
     @FXML
-    private void ResetMonth(Text[] dayNumber, Text[] dayDesc){
+    private void ResetMonth(){
         for(int i = 0; i<dayNumber.length;i++){
             dayNumber[i].setText("");
             dayDesc[i].setText("");
@@ -352,67 +355,19 @@ public class AgendaController implements Initializable {
     }
     
     @FXML
-    private void UpdateDays(Text[] dayDesc,Text[] dayNumber, int month, int year) throws ParseException{
+    private void UpdateDays(int month, int year) throws ParseException{
         Calendar c = Calendar.getInstance();
-        c.setTime(new SimpleDateFormat("dd/M/yyyy").parse("01/" + (month+1) + "/"+ year));
+        c.setTime(new SimpleDateFormat("dd-M-yyyy").parse("01-" + (month+1) + "-"+ year));
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         int modifier = c.get(Calendar.DAY_OF_WEEK);
-        
-        //Month.setText(String.valueOf(modifier));
-        String monthStr = null, dayStr = null;
-        
-        switch(month){
-            case 0:
-                monthStr = "01";
-                break;
-            case 1:
-                monthStr = "02";
-                break;
-            case 2:
-                monthStr = "03";
-                break;
-            case 3:
-                monthStr = "04";
-                break;
-            case 4:
-                monthStr = "05";
-                break;
-            case 5:
-                monthStr = "06";
-                break;
-            case 6:
-                monthStr = "07";
-                break;
-            case 7:
-                monthStr = "08";
-                break;
-            case 8:
-                monthStr = "09";
-                break;
-            case 9:
-                monthStr = "10";
-                break;
-            case 10:
-                monthStr = "11";
-                break;
-            case 11:
-                monthStr = "12";
-                break;  
-        }
-        
-        
         
         if(month == 1){
             for(int i = 1; i<28; i++){
+                c.add(Calendar.DATE, 1);
                 dayNumber[i+modifier-2].setText(String.valueOf(i));
-                
-                if(i <10){
-                    dayStr = "0"+i;
-                }
-                else{
-                    dayStr = String.valueOf(i);
-                }
-                if(agenda.containsKey(year+"-"+monthStr+"-"+dayStr)){
-                    dayDesc[i+modifier-2].setText(agenda.get(year+"-"+monthStr+"-"+dayStr));
+
+                if(agenda.containsKey(sdf.format(c.getTime()))){
+                    dayDesc[i+modifier-2].setText(agenda.get(sdf.format(c.getTime())));
                 }
             }
         }
@@ -421,11 +376,21 @@ public class AgendaController implements Initializable {
                 case 1:
                     for(int i = 1; i<=30; i++){
                         dayNumber[i+modifier-2].setText(String.valueOf(i));
+                        c.add(Calendar.DATE, 1);
+                        
+                        if(agenda.containsKey(sdf.format(c.getTime()))){
+                            dayDesc[i+modifier-2].setText(agenda.get(sdf.format(c.getTime())));
+                        }
                     }
                     break;
                 case 0:
                     for(int i = 1; i<=31; i++){
                         dayNumber[i+modifier-2].setText(String.valueOf(i));
+                        c.add(Calendar.DATE, 1);
+                        
+                        if(agenda.containsKey(sdf.format(c.getTime()))){
+                            dayDesc[i+modifier-2].setText(agenda.get(sdf.format(c.getTime())));
+                        }
                     }
                     break;
             }
