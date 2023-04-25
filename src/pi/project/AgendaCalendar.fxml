@@ -44,13 +44,13 @@
                   <Group>
                      <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9c9c9c" height="16.0" layoutX="353.0" layoutY="15.0" onMouseClicked="#MinusMonth" stroke="BLACK" strokeType="INSIDE" width="16.0" />
-                        <Text layoutX="357.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;" />
+                        <Text layoutX="357.0" layoutY="27.0" onMouseClicked="#MinusMonth" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;" />
                      </children>
                   </Group>
                   <Group>
                      <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9c9c9c" height="16.0" layoutX="475.0" layoutY="15.0" onMouseClicked="#AddMonth" stroke="BLACK" strokeType="INSIDE" width="16.0" />
-                        <Text layoutX="479.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&gt;" />
+                        <Text layoutX="479.0" layoutY="27.0" onMouseClicked="#AddMonth" strokeType="OUTSIDE" strokeWidth="0.0" text="&gt;" />
                      </children>
                   </Group>
                </children>
@@ -121,7 +121,7 @@
                   <Text fx:id="Number41" layoutX="416.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="99" textAlignment="RIGHT" wrappingWidth="15.13671875" />
                   <Text fx:id="Number31" layoutX="368.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="99" textAlignment="RIGHT" wrappingWidth="15.13671875" />
                   <Text fx:id="Number21" layoutX="320.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="99" textAlignment="RIGHT" wrappingWidth="15.13671875" />
-                  <Text fx:id="Number8" layoutX="272.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="99" textAlignment="RIGHT" wrappingWidth="15.13671875" />
+                  <Text fx:id="Number11" layoutX="272.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="99" textAlignment="RIGHT" wrappingWidth="15.13671875" />
                </children>
             </Group>
             <Group layoutY="134.0">
