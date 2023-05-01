@@ -8,6 +8,7 @@ package pi.project;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.YearMonth;
 import java.util.Calendar;
 import java.util.Hashtable;
 import java.util.ResourceBundle;
@@ -361,38 +362,17 @@ public class AgendaController implements Initializable {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         int modifier = c.get(Calendar.DAY_OF_WEEK);
         
-        if(month == 1){
-            for(int i = 1; i<28; i++){
-                c.add(Calendar.DATE, 1);
-                dayNumber[i+modifier-2].setText(String.valueOf(i));
+        YearMonth yearMonthObject = YearMonth.of(c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1);
+        
+        // debug
+        // dayNumber[41].setText(String.valueOf(c.get(Calendar.MONTH)+ 1));
+        
+        for(int i = 1; i<=yearMonthObject.lengthOfMonth(); i++){
+            c.add(Calendar.DATE, 1);
+            dayNumber[i+modifier-2].setText(String.valueOf(i));
 
-                if(agenda.containsKey(sdf.format(c.getTime()))){
-                    dayDesc[i+modifier-2].setText(agenda.get(sdf.format(c.getTime())));
-                }
-            }
-        }
-        else{
-            switch(month%2){
-                case 1:
-                    for(int i = 1; i<=30; i++){
-                        dayNumber[i+modifier-2].setText(String.valueOf(i));
-                        c.add(Calendar.DATE, 1);
-                        
-                        if(agenda.containsKey(sdf.format(c.getTime()))){
-                            dayDesc[i+modifier-2].setText(agenda.get(sdf.format(c.getTime())));
-                        }
-                    }
-                    break;
-                case 0:
-                    for(int i = 1; i<=31; i++){
-                        dayNumber[i+modifier-2].setText(String.valueOf(i));
-                        c.add(Calendar.DATE, 1);
-                        
-                        if(agenda.containsKey(sdf.format(c.getTime()))){
-                            dayDesc[i+modifier-2].setText(agenda.get(sdf.format(c.getTime())));
-                        }
-                    }
-                    break;
+            if(agenda.containsKey(sdf.format(c.getTime()))){
+                dayDesc[i+modifier-2].setText(agenda.get(sdf.format(c.getTime())));
             }
         }
     }

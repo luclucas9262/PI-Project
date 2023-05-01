@@ -20,15 +20,16 @@ import javafx.stage.Stage;
 public class PiProject extends Application {
     
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage stage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("AgendaCalendar.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
             
             Scene scene = new Scene(root);
             
-            primaryStage.setTitle("Projeto PI");
-            primaryStage.setScene(scene);
-            primaryStage.show();
+            stage.setTitle("Login");
+            stage.setScene(scene);
+            stage.show();
+            
         } catch (IOException ex) {
             Logger.getLogger(PiProject.class.getName()).log(Level.SEVERE, null, ex);
         }
