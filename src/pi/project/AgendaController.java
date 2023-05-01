@@ -312,6 +312,8 @@ public class AgendaController implements Initializable {
     
     @FXML
     private void SetMonth(int month){
+        
+        // tem maneiras melhores porem ficam em ingles
         switch(month){
             case 0:
                 Month.setText("Janeiro");
@@ -372,7 +374,7 @@ public class AgendaController implements Initializable {
             dayNumber[i+modifier-2].setText(String.valueOf(i));
 
             if(agenda.containsKey(sdf.format(c.getTime()))){
-                dayDesc[i+modifier-2].setText(agenda.get(sdf.format(c.getTime())));
+                dayDesc[i+modifier-1].setText(agenda.get(sdf.format(c.getTime())));
             }
         }
     }

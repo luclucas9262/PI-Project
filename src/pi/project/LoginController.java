@@ -64,6 +64,7 @@ public class LoginController implements Initializable {
                 root = FXMLLoader.load(getClass().getResource("AgendaCalendar.fxml"));
                 stage = (Stage)((Node)event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
+                stage.setTitle("Agenda");
                 stage.setScene(scene);
                 stage.show();
             }
