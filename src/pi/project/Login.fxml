@@ -24,13 +24,13 @@
          </font>
       </Text>
       <Text fx:id="sus" fill="WHITE" layoutX="108.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario" />
-      <TextField fx:id="tfUser" layoutX="108.0" layoutY="152.0" prefHeight="25.0" prefWidth="385.0" />
+      <TextField fx:id="tfUser" layoutX="108.0" layoutY="152.0" onAction="#onClickEnter" prefHeight="25.0" prefWidth="385.0" />
       <Text fill="WHITE" layoutX="108.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha" />
+      <PasswordField fx:id="tfPassword" layoutX="108.0" layoutY="218.0" onAction="#onClickEnter" prefHeight="25.0" prefWidth="385.0" />
+      <Button layoutX="270.0" layoutY="259.0" mnemonicParsing="false" onAction="#onClickEnter" text="Entrar" />
       <Text fill="WHITE" layoutX="193.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Não possui uma conta?" />
       <Text fill="#0072ab" layoutX="328.0" layoutY="321.0" onMouseClicked="#clickRegister" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastre-se" />
-      <Button layoutX="270.0" layoutY="259.0" mnemonicParsing="false" onAction="#onClickEnter" text="Entrar" />
       <Text fx:id="GoodStats" fill="LIME" layoutX="213.0" layoutY="128.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login Realizado com sucesso!" textAlignment="CENTER" />
       <Text fx:id="BadStats" fill="RED" layoutX="217.0" layoutY="128.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha ou Usuario incorretos" textAlignment="CENTER" />
-      <PasswordField fx:id="tfPassword" layoutX="108.0" layoutY="218.0" onAction="#onClickEnter" prefHeight="25.0" prefWidth="385.0" />
    </children>
 </AnchorPane>
