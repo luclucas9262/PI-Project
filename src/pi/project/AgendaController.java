@@ -210,16 +210,18 @@ public class AgendaController implements Initializable {
     private Text Number15;
     
     Hashtable<String, String> agenda = new Hashtable<String, String>(); 
+
     Text[] dayDesc, dayNumber;
+
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         dayDesc = new Text[]{Desc10, Desc20, Desc30, Desc40, Desc50, Desc60, Desc70, Desc11, Desc21, Desc31, Desc41, Desc51, Desc61, Desc71, Desc12, Desc22, Desc32, Desc42, Desc52, Desc62, Desc72, Desc13, Desc23, Desc33, Desc43, Desc53, Desc63, Desc73, Desc14, Desc24, Desc34, Desc44, Desc54, Desc64, Desc74, Desc15, Desc25, Desc35, Desc45, Desc55, Desc65, Desc75};
         dayNumber = new Text[]{Number10, Number20, Number30, Number40, Number50, Number60, Number70, Number11, Number21, Number31, Number41, Number51, Number61, Number71, Number12, Number22, Number32, Number42, Number52, Number62, Number72, Number13, Number23, Number33, Number43, Number53, Number63, Number73, Number14, Number24, Number34, Number44, Number54, Number64, Number74, Number15, Number25, Number35, Number45, Number55, Number65, Number75};
+
 
         int month = Calendar.getInstance().get(Calendar.MONTH);
         int year = Calendar.getInstance().get(Calendar.YEAR);
@@ -228,6 +230,7 @@ public class AgendaController implements Initializable {
         SetMonth(month);
         try {
             UpdateDays(month, year);
+
         } catch (ParseException ex) {
             Logger.getLogger(AgendaController.class.getName()).log(Level.SEVERE, null, ex);
         }
