@@ -24,7 +24,7 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <Pane layoutX="13.0" layoutY="56.0" prefHeight="635.0" prefWidth="974.0" style="-fx-background-color: #ebebeb; -fx-border-color: #d4d4d4;">
+      <Pane layoutX="13.0" layoutY="56.0" prefHeight="680.0" prefWidth="1000.0" style="-fx-background-color: #ebebeb; -fx-border-color: #d4d4d4;">
          <children>
             <TextField fx:id="nome" layoutX="7.0" layoutY="57.0" prefHeight="31.0" prefWidth="707.0" promptText="Nome Completo" />
             <TextField fx:id="cfpid" layoutX="7.0" layoutY="213.0" promptText="000.000.000.00" />

@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafxapplication1.LoginController;
 import javafxapplication1.tela;
@@ -45,7 +46,7 @@ public class MainviewController implements Initializable {
     @FXML
     public void onMenuItemAboutAction() {
       
-       loadView("/gui/About.fxml");
+       loadView("/gui/AgendaCalendar.fxml");
        
     }
 
@@ -56,10 +57,12 @@ public class MainviewController implements Initializable {
     }
 
     private synchronized void loadView(String absoluteName){
+        
         try{
         
             FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
             VBox newVBox = loader.load();
+            
             
             Scene mainScene = LoginController.getMainScene();
             
@@ -69,6 +72,7 @@ public class MainviewController implements Initializable {
             mainVBox.getChildren().clear();
             mainVBox.getChildren().add(mainMenu);
             mainVBox.getChildren().addAll(newVBox.getChildren());
+            
             
         }
         catch(IOException e){

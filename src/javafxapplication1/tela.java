@@ -24,8 +24,8 @@ public class tela extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
             Parent scrollPane = loader.load();
             
-//            scrollPane.setFitToHeight(true);
-//            scrollPane.setFitToWidth(true);
+            // scrollPane.setFitToHeight(true);
+            // scrollPane.setFitToWidth(true);
             // Classe da tela
             scene = new Scene(scrollPane);
             // Titulo da tela

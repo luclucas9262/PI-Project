@@ -74,6 +74,8 @@ public class CadastroController implements Initializable {
         Constraints.setTextFieldDouble(numberid);
         Constraints.setTextFieldDouble(telid);
         
+        
+        
   }
 
     @FXML
