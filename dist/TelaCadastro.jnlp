@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="TelaCadastro.jnlp">
+  <information>
+    <title>TelaCadastro</title>
+    <vendor>nanah</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="TelaCadastro.jar" size="21385" download="eager" />
+    <jar href="lib\mysql-connector-j-8.0.33.jar" size="2481560" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="javafxapplication1.tela"  name="TelaCadastro" />
+  <update check="always"/>
+</jnlp>
