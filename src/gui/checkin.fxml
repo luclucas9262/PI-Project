@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CheckinController">
+   <children>
+      <Pane prefHeight="146.0" prefWidth="990.0" style="-fx-background-radius: 5; -fx-background-color: #f0f0f0;">
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+         <children>
+            <TextField layoutX="14.0" layoutY="25.0" prefHeight="31.0" prefWidth="953.0" />
+            <Label layoutX="14.0" layoutY="4.0" text="Nome Completo" />
+            <TextField layoutX="14.0" layoutY="77.0" prefHeight="31.0" prefWidth="256.0" />
+            <Label layoutX="14.0" layoutY="56.0" text="CPF" />
+            <TextField layoutX="277.0" layoutY="77.0" prefHeight="31.0" prefWidth="246.0" />
+            <Label layoutX="277.0" layoutY="56.0" text="RG" />
+            <Button layoutX="792.0" layoutY="77.0" mnemonicParsing="false" onAction="#OnBuscaAction" prefHeight="31.0" prefWidth="175.0" text="Buscas Consulta" />
+            <TextField layoutX="534.0" layoutY="77.0" prefHeight="31.0" prefWidth="246.0" />
+            <Label layoutX="534.0" layoutY="56.0" text="Código ID" />
+         </children>
+      </Pane>
+      <Pane prefHeight="479.0" prefWidth="990.0" style="-fx-background-radius: 5; -fx-background-color: #f0f0f0;">
+         <VBox.margin>
+            <Insets left="5.0" right="5.0" />
+         </VBox.margin>
+         <children>
+            <Label layoutX="8.0" layoutY="4.0" text="INFORMAÇÕES CONSULTA" />
+            <Pane layoutX="4.0" layoutY="35.0" prefHeight="439.0" prefWidth="981.0" style="-fx-border-radius: 5; -fx-border-color: #757474;">
+               <children>
+                  <Separator layoutX="145.0" orientation="VERTICAL" prefHeight="439.0" prefWidth="19.0">
+                     <padding>
+                        <Insets bottom="1.0" top="1.0" />
+                     </padding>
+                  </Separator>
+                  <Label layoutX="42.0" layoutY="4.0" text="Data">
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </Label>
+                  <Separator layoutX="347.0" orientation="VERTICAL" prefHeight="439.0" prefWidth="19.0">
+                     <padding>
+                        <Insets bottom="1.0" top="1.0" />
+                     </padding>
+                  </Separator>
+                  <Label layoutX="225.0" layoutY="4.0" text="Consulta">
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </Label>
+                  <Separator layoutX="560.0" orientation="VERTICAL" prefHeight="439.0" prefWidth="19.0">
+                     <padding>
+                        <Insets bottom="1.0" top="1.0" />
+                     </padding>
+                  </Separator>
+                  <Label layoutX="431.0" layoutY="4.0" text="Medico">
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="medico1" layoutX="431.0" layoutY="32.0">
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="consulta1" layoutX="225.0" layoutY="32.0">
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="data1" layoutX="42.0" layoutY="32.0">
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="data2" layoutX="42.0" layoutY="62.0">
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="consulta2" layoutX="225.0" layoutY="62.0">
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="medico2" layoutX="431.0" layoutY="62.0">
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="data3" layoutX="42.0" layoutY="92.0">
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="consulta3" layoutX="225.0" layoutY="92.0">
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="medico3" layoutX="431.0" layoutY="92.0">
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </Label>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutY="25.0" onMouseClicked="#OnConClick1" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="981.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutY="57.0" onMouseClicked="#OnConClick2" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="981.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutY="87.0" onMouseClicked="#OnConClick3" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="981.0" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane prefHeight="55.0" prefWidth="990.0" style="-fx-background-color: #f0f0f0; -fx-background-radius: 5;">
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+         <children>
+            <Button layoutX="801.0" layoutY="12.0" mnemonicParsing="false" onAction="#OnCheckAction" prefHeight="31.0" prefWidth="175.0" text="Fazer Check-In" />
+            <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#OnCanAction" prefHeight="31.0" prefWidth="175.0" text="Cancelar" />
+         </children>
+      </Pane>
+   </children>
+</VBox>
