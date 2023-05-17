@@ -110,7 +110,7 @@ public class PacienteLoginController implements Initializable {
 
     @FXML
     private void onBotaoAction(ActionEvent event) throws IOException {
-         try{
+        try{
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
