@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
@@ -54,6 +55,8 @@ public class CadastroController implements Initializable {
     private Button botao;
     @FXML
     private MenuButton civilid;
+    @FXML
+    private PasswordField passwordId;
 
     /**
      * Initializes the controller class.
@@ -73,6 +76,7 @@ public class CadastroController implements Initializable {
         Constraints.setTextFieldDouble(dataid);
         Constraints.setTextFieldDouble(numberid);
         Constraints.setTextFieldDouble(telid);
+        Constraints.setTextFieldDouble(passwordId);
         
         
         
@@ -98,6 +102,10 @@ public class CadastroController implements Initializable {
     @FXML
     private void oncasadoAction(ActionEvent event) {
 
+    }
+
+    @FXML
+    private void onBack(ActionEvent event) {
     }
 
 }

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.media.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.effect.*?>
@@ -17,14 +19,14 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-border-radius: 50;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CadastroController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" style="-fx-border-radius: 50;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FuncionarioController">
    <children>
       <Label layoutX="14.0" layoutY="4.0" text="Cadastro de Funcionario">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <Pane layoutX="13.0" layoutY="56.0" prefHeight="680.0" prefWidth="1000.0" style="-fx-background-color: #ebebeb; -fx-border-color: #d4d4d4;">
+      <Pane layoutX="13.0" layoutY="56.0" prefHeight="688.0" prefWidth="1000.0" style="-fx-background-color: #ebebeb; -fx-border-color: #d4d4d4;">
          <children>
             <TextField fx:id="nome" layoutX="7.0" layoutY="57.0" prefHeight="31.0" prefWidth="707.0" promptText="Nome Completo" />
             <TextField fx:id="cfpid" layoutX="7.0" layoutY="213.0" promptText="000.000.000.00" />
@@ -46,8 +48,11 @@
             <Label layoutX="733.0" layoutY="36.0" prefHeight="21.0" prefWidth="113.0" text="SEXO" />
             <TextField fx:id="dataid" layoutX="7.0" layoutY="109.0" promptText="00/00/0000" />
             <Label layoutX="7.0" layoutY="88.0" prefHeight="21.0" prefWidth="122.0" text="Data Nascimento" />
-            <RadioButton fx:id="mascid" layoutX="733.0" layoutY="62.0" mnemonicParsing="false" onAction="#onMascAction" text="Masculino" />
-            <RadioButton fx:id="femid" layoutX="834.0" layoutY="63.0" mnemonicParsing="false" onAction="#onFemAction" text="Feminino" />
+            <RadioButton fx:id="mascid" layoutX="733.0" layoutY="62.0" mnemonicParsing="false" onAction="#onRadioSex" text="Masculino">
+               <toggleGroup>
+                  <ToggleGroup fx:id="groupSex" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="femid" layoutX="834.0" layoutY="63.0" mnemonicParsing="false" onAction="#onRadioSex" text="Feminino" toggleGroup="$groupSex" />
             <Label layoutX="200.0" layoutY="88.0" prefHeight="21.0" prefWidth="122.0" text="Estado Civil" />
             <Label layoutX="7.0" layoutY="309.0" text="Endereço">
                <font>
@@ -55,7 +60,7 @@
                </font>
             </Label>
             <Label layoutX="7.0" layoutY="395.0" text="Endereço: " />
-            <TextField fx:id="ruaid" layoutX="7.0" layoutY="416.0" prefHeight="31.0" prefWidth="378.0" promptText="Rua " />
+            <TextField fx:id="ruaid" layoutX="7.0" layoutY="416.0" prefHeight="25.0" prefWidth="342.0" promptText="Rua " />
             <Label layoutX="7.0" layoutY="447.0" text="Cidade" />
             <TextField fx:id="cidadeid" layoutX="7.0" layoutY="468.0" promptText="São Paulo " />
             <Label layoutX="200.0" layoutY="338.0" text="Numero" />
@@ -66,15 +71,24 @@
             <Label layoutX="7.0" layoutY="499.0" text="Bairro" />
             <TextField fx:id="compid" layoutX="200.0" layoutY="520.0" />
             <Label layoutX="200.0" layoutY="499.0" text="Complemento" />
-            <Label layoutX="200.0" layoutY="244.0" text="Telefone" />
-            <TextField fx:id="telid" layoutX="200.0" layoutY="265.0" promptText="(00) 00000-0000" />
-            <Button fx:id="botao" layoutX="900.0" layoutY="600.0" mnemonicParsing="false" onAction="#onBotaoAction" text="Cadastrar " />
-            <MenuButton fx:id="civilid" layoutX="202.0" layoutY="109.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="184.0" text="Selecione">
+            <Label layoutX="200.0" layoutY="192.0" text="Telefone" />
+            <TextField fx:id="telid" layoutX="200.0" layoutY="213.0" promptText="(00) 00000-0000" />
+            <MenuButton fx:id="civilid" layoutX="200.0" layoutY="109.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="184.0" text="Selecione">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#onsolteiroAction" text="Solteiro" />
                 <MenuItem mnemonicParsing="false" onAction="#oncasadoAction" text="Casado" />
               </items>
             </MenuButton>
+            <Button fx:id="botao" layoutX="900.0" layoutY="600.0" mnemonicParsing="false" onAction="#onBotaoAction" text="Cadastrar " />
+            <Label layoutX="201.0" layoutY="244.0" text="Senha" />
+            <PasswordField fx:id="passwordId" layoutX="201.0" layoutY="267.0" promptText="******" />
+            <RadioButton fx:id="radioMedic" layoutX="108.0" layoutY="583.0" mnemonicParsing="false" text="Medico">
+               <toggleGroup>
+                  <ToggleGroup fx:id="groupCargo" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="radioAtendee" layoutX="7.0" layoutY="582.0" mnemonicParsing="false" text="Atendente" toggleGroup="$groupCargo" />
+            <Label layoutX="7.0" layoutY="556.0" prefHeight="21.0" prefWidth="113.0" text="Cargo" />
          </children>
       </Pane>
    </children>

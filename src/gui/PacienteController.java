@@ -17,12 +17,8 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 
-/**
- * FXML Controller class
- *
- * @author Pc
- */
-public class FuncionarioController implements Initializable {
+
+public class PacienteController implements Initializable {
 
     @FXML
     private TextField nome;
@@ -44,12 +40,6 @@ public class FuncionarioController implements Initializable {
     private ToggleGroup groupSex;
     @FXML
     private RadioButton femid;
-    @FXML
-    private RadioButton radioAtendee;
-    @FXML
-    private ToggleGroup groupCargo;
-    @FXML
-    private RadioButton radioMedic;
     @FXML
     private TextField ruaid;
     @FXML
@@ -76,6 +66,7 @@ public class FuncionarioController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+      
         Constraints.setTexFieldCharacter(nome);
         Constraints.setTexFieldCharacter(ruaid);
         Constraints.setTexFieldCharacter(cidadeid);
@@ -89,22 +80,27 @@ public class FuncionarioController implements Initializable {
         Constraints.setTextFieldDouble(numberid);
         Constraints.setTextFieldDouble(telid);
         Constraints.setTextFieldDouble(passwordId);
-    }    
+        
+        
+        
+  }
 
     @FXML
     private void onRadioSex(ActionEvent event) {
     }
 
     @FXML
+    private void onBotaoAction(ActionEvent event) {
+    }
+
+    @FXML
     private void onsolteiroAction(ActionEvent event) {
+
     }
 
     @FXML
     private void oncasadoAction(ActionEvent event) {
+
     }
 
-    @FXML
-    private void onBotaoAction(ActionEvent event) {
-    }
-    
 }
