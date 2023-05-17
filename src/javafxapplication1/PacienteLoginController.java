@@ -4,9 +4,11 @@
  */
 package javafxapplication1;
 
+import db.DB;
 import gui.util.Constraints;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -75,9 +77,8 @@ public class PacienteLoginController implements Initializable {
     private Stage stage;
     private static Scene scene;
     
-    /**
-     * Initializes the controller class.
-     */
+    Connection conn = DB.getConnection();
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Constraints.setTexFieldCharacter(nome);
