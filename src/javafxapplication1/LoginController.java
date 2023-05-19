@@ -44,7 +44,7 @@ public class LoginController implements Initializable {
     private static Scene scene;
     private Parent root;
 
-    private Connection conn = DB.getConnection();
+    private Connection conn;
     private PreparedStatement st = null;
     private ResultSet rs = null;
     
@@ -77,6 +77,8 @@ public class LoginController implements Initializable {
     @FXML
     private void onClickEnter(ActionEvent event) throws IOException, SQLException {
         
+        conn = DB.getConnection();
+        
         st = conn.prepareStatement("select email, senha, cargo from pessoa where email = ?");
         st.setString(1, tfUser.getText());
         
@@ -86,6 +88,8 @@ public class LoginController implements Initializable {
         usuario = rs.getString("email");
         senha = rs.getString("senha");
         cargo = rs.getString("cargo");
+        
+        conn.close();
         
         if (usuario.equals(tfUser.getText()) && senha.equals(tfPassword.getText())){
             try {
