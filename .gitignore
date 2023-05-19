@@ -1,3 +1,5 @@
 /dist/
 /build/
 db.properties
+
+lib/jre1.8.0_202/
