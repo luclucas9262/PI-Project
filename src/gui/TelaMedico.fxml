@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.web.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -16,103 +17,63 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="29.0" prefWidth="25.0">
                      <children>
-                        <Pane layoutX="8.0" layoutY="7.0" prefHeight="602.0" prefWidth="323.0" style="-fx-border-color: #858585; -fx-border-radius: 5;" />
-                        <Pane layoutX="4.0" layoutY="35.0" prefHeight="439.0" prefWidth="981.0" style="-fx-border-radius: 5; -fx-border-color: #757474;">
-               <children>
-                  <Separator layoutX="145.0" orientation="VERTICAL" prefHeight="439.0" prefWidth="19.0">
-                     <padding>
-                        <Insets bottom="1.0" top="1.0" />
-                     </padding>
-                  </Separator>
-                  <Label layoutX="42.0" layoutY="4.0" text="Data">
-                     <padding>
-                        <Insets left="5.0" right="5.0" />
-                     </padding>
-                  </Label>
-                  <Separator layoutX="347.0" orientation="VERTICAL" prefHeight="439.0" prefWidth="19.0">
-                     <padding>
-                        <Insets bottom="1.0" top="1.0" />
-                     </padding>
-                  </Separator>
-                  <Label layoutX="225.0" layoutY="4.0" text="Consulta">
-                     <padding>
-                        <Insets left="5.0" right="5.0" />
-                     </padding>
-                  </Label>
-                  <Separator layoutX="560.0" orientation="VERTICAL" prefHeight="439.0" prefWidth="19.0">
-                     <padding>
-                        <Insets bottom="1.0" top="1.0" />
-                     </padding>
-                  </Separator>
-                  <Label layoutX="431.0" layoutY="4.0" text="Medico">
-                     <padding>
-                        <Insets left="5.0" right="5.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="medico1" layoutX="431.0" layoutY="32.0">
-                     <padding>
-                        <Insets left="5.0" right="5.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="consulta1" layoutX="225.0" layoutY="32.0">
-                     <padding>
-                        <Insets left="5.0" right="5.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="data1" layoutX="42.0" layoutY="32.0">
-                     <padding>
-                        <Insets left="5.0" right="5.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="data2" layoutX="42.0" layoutY="62.0">
-                     <padding>
-                        <Insets left="5.0" right="5.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="consulta2" layoutX="225.0" layoutY="62.0">
-                     <padding>
-                        <Insets left="5.0" right="5.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="medico2" layoutX="431.0" layoutY="62.0">
-                     <padding>
-                        <Insets left="5.0" right="5.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="data3" layoutX="42.0" layoutY="92.0">
-                     <padding>
-                        <Insets left="5.0" right="5.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="consulta3" layoutX="225.0" layoutY="92.0">
-                     <padding>
-                        <Insets left="5.0" right="5.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="medico3" layoutX="431.0" layoutY="92.0">
-                     <padding>
-                        <Insets left="5.0" right="5.0" />
-                     </padding>
-                  </Label>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutY="25.0" onMouseClicked="#OnConClick1" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="981.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutY="57.0" onMouseClicked="#OnConClick2" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="981.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutY="87.0" onMouseClicked="#OnConClick3" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="981.0" />
-               </children>
-            </Pane>
+                        <VBox layoutX="6.0" layoutY="47.0" prefHeight="559.0" prefWidth="987.0" style="-fx-border-color: #e6e6e6;">
+                           <children>
+                              <Label prefHeight="21.0" prefWidth="119.0" text="Data da Abertura:">
+                                 <padding>
+                                    <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label prefHeight="37.0" prefWidth="184.0" text="Nome Completo Do Paciente: ">
+                                 <padding>
+                                    <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label prefHeight="21.0" prefWidth="119.0" text="Data Nascimento:">
+                                 <padding>
+                                    <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label prefHeight="21.0" prefWidth="119.0" text="Sexo:">
+                                 <padding>
+                                    <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label prefHeight="37.0" prefWidth="131.0" text="Alergias:">
+                                 <padding>
+                                    <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <Label layoutX="14.0" prefHeight="41.0" prefWidth="200.0" text="Prontuario Médico Paciente">
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                           </padding>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Escrita">
+          <Tab text="Receita Médica">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HTMLEditor htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="-3.0" layoutY="-1.0" prefHeight="619.0" prefWidth="1006.0" />
+                     </children></AnchorPane>
             </content>
           </Tab>
         </tabs>
       </TabPane>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #f0f0f0;">
+      <ToolBar prefHeight="73.0" prefWidth="1000.0" style="-fx-background-color: #f0f0f0;">
         <items>
-          <Button mnemonicParsing="false" text="Finalizar Consulta" />
+          <Button mnemonicParsing="false" text="Finalizar Consulta">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
         </items>
       </ToolBar>
    </children>
